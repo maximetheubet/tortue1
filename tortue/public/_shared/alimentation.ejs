@@ -1,0 +1,85 @@
+<html lang="en" class="demo-2 no-js">
+<div class="wrapper wrapper-style2">
+	<article id="alimentation">
+		<header>
+			<h2>Mon alimentation</h2>
+			<span>Voici ce que je mange :</span>
+		</header>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/snap.svg-min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<section id="grid" class="grid clearfix">
+				<a>
+					<figure>
+						<img src="images/a1.png" />	
+						<svg viewBox="0 40 180 300" preserveAspectRatio="none"><path d="M 180,160 100,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<p>MÉDUSES</p>
+						</figcaption>
+					</figure>
+				</a>
+				<a>
+					<figure>
+						<img src="images/a2.png" />
+						<svg viewBox="0 40 180 300" preserveAspectRatio="none"><path d="M 180,160 100,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<p>CRABES</p>
+						</figcaption>
+					</figure>
+				</a>
+				<a>
+					<figure>
+						<img src="images/a3.png" />
+						<svg viewBox="0 40 180 300" preserveAspectRatio="none"><path d="M 180,160 100,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<p>POISSONS</p>
+						</figcaption>
+					</figure>
+				</a>
+				<a>
+					<figure>
+						<img src="images/a4.png" />
+						<svg viewBox="0 40 180 300" preserveAspectRatio="none"><path d="M 180,160 100,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<p>ESCARGOTS</p>
+						</figcaption>
+					</figure>
+				</a>
+			</section>
+		</div>
+		<script>
+			(function() {
+	
+				function init() {
+					var speed = 300,
+						easing = mina.easeinout;
+
+					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+							pathConfig = {
+								from : path.attr( 'd' ),
+								to : el.getAttribute( 'data-path-hover' )
+							};
+
+						el.addEventListener( 'mouseenter', function() {
+							path.animate( { 'path' : pathConfig.to }, speed, easing );
+						} );
+
+						el.addEventListener( 'mouseleave', function() {
+							path.animate( { 'path' : pathConfig.from }, speed, easing );
+						} );
+					} );
+				}
+
+				init();
+
+			})();
+		</script>
+	</article>	
+	</body>
+</html>	
